@@ -1,5 +1,5 @@
 ## Assignment Description
-Your task is to write an agent inheriting from `ChessAgent` based on the methods discussed in class. You pay place your agent `.py` file in `data/classes/agents/`, where you will also find the `HumanPlayer` and `RandomPlayer` for reference. Like the previous assignment, you must collect data on the performance of your agent over at least 100 matches. It is suggested that you use the `chess_match` function as demonstrated in `main.py` and write your own script which uses your agent over those 100 matches.
+Your task is to write an agent inheriting from `ChessAgent` based on the methods discussed in class. You may place your agent `.py` file in `data/classes/agents/`, where you will also find the `HumanPlayer` and `RandomPlayer` for reference. Like the previous assignment, you must collect data on the performance of your agent over at least 100 matches. It is suggested that you use the `chess_match` function as demonstrated in `main.py` and write your own script which uses your agent over those 100 matches.
 
 ## Setup Instructions
 You can install the requirements (only pygame) by running `pip install -r requirements.txt`

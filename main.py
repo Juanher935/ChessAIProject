@@ -3,6 +3,7 @@ import argparse
 from data.classes.ChessMatch import chess_match
 from data.classes.agents.RandomPlayer import RandomPlayer
 from data.classes.agents.HumanPlayer import HumanPlayer
+from data.classes.agents.MiniMaxPlayer import MiniMaxPlayer
 from data.classes.agents.ChessAgent import ChessAgent
 
 def main():

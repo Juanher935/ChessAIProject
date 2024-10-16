@@ -8,31 +8,35 @@ from data.classes.Square import Square
 from data.classes.Board import Board
 from data.classes.agents.ChessAgent import ChessAgent
 
+
+def evaluate(board):
+    piece_values = {
+        'P': 1, 'N': 3, 'B': 3, 'R': 5, 'Q': 9, 'K': 0
+    }
+    score = 0
+    for row in board.config:
+        for piece in row:
+            if piece:
+                value = piece_values[piece[1]]
+                score += value if piece[0] == 'w' else -value
+    return score
+
+
+def minimax(board, depth, maximizingPlayer):
+    if depth == 0:
+        return evaluate(board)
+    if maximizingPlayer:
+        max_Value = float('-inf')
+        pass
+    else:
+        pass
+        # minPlayer
+
+
 class MiniMaxPlayer(ChessAgent):
 
-    def evaluate(self, board):
-        piece_values = {
-            'P': 1, 'N': 3, 'B': 3, 'R': 5, 'Q': 9, 'K': 0
-        }
-        score = 0
-        for row in board:
-            for piece in row:
-                if piece:
-                    value = piece_values[piece[1]]
-                    score += value if piece[0] == 'w' else -value
-        return score
-
-    def minimax(self, board, depth, maximizingPlayer):
-        if depth == 0:
-            return self.evaluate(board)
-        if maximizingPlayer:
-            max_Value = float('-inf')
-            pass
-        else:
-            pass
-            # minPlayer
-
     def choose_action(self, board: Board):
+        eval_score = minimax(board, depth=0, maximizingPlayer=False)
         possible_moves: list[tuple[Square, Square]] = []
 
         if len(possible_moves) < 1:

@@ -8,7 +8,9 @@ from data.classes.Square import Square
 from data.classes.Board import Board
 from data.classes.agents.ChessAgent import ChessAgent
 
-
+# Evaluates the Board by reading each piece on the board and calculating the score total
+# Need to implement Dynamic change for White to Black piece player "clicked_square.occupying_piece.color == board.turn"
+# or "self.color" Might check color
 def evaluate(board):
     piece_values = {
         'P': 1, 'N': 3, 'B': 3, 'R': 5, 'Q': 9, 'K': 0
@@ -41,4 +43,5 @@ class MiniMaxPlayer(ChessAgent):
 
         if len(possible_moves) < 1:
             return False
+        #   return (board.selected_square, clicked_square) Something Like this to move piece
         return random.choice(possible_moves)

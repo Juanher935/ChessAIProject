@@ -159,3 +159,25 @@ class Board:
         for square in self.squares:
             square.draw(display)
         pygame.display.update()
+
+
+    # Add a method to clone the board
+    def clone(self):
+        new_board = Board(self.display, self.width, self.height)
+        new_board.config = [row[:] for row in self.config]
+        new_board.turn = self.turn
+        new_board.squares = [Square(sq.x, sq.y, sq.width, sq.height) for sq in self.squares]
+        new_board.setup_board()  # Set up the pieces on the new board according to the cloned configuration
+        return new_board
+
+    # Add a method to simulate a move
+    def simulate_move(self, move):
+        from_square, to_square = move
+        new_board = self.clone()
+        moving_piece = new_board.get_square_from_pos((from_square.x, from_square.y)).occupying_piece
+        target_square = new_board.get_square_from_pos((to_square.x, to_square.y))
+
+        # Simulate the move
+        if moving_piece and moving_piece.move(new_board, target_square):
+            new_board.turn = 'white' if self.turn == 'black' else 'black'
+        return new_board

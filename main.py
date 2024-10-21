@@ -1,6 +1,6 @@
 import argparse
 
-from data.classes.ChessMatch import chess_match
+from data.classes.ChessMatch import chess_match, game_tracker_100
 from data.classes.agents.RandomPlayer import RandomPlayer
 from data.classes.agents.HumanPlayer import HumanPlayer
 from data.classes.agents.MiniMaxPlayer import MiniMaxPlayer
@@ -19,7 +19,10 @@ def main():
         return
     white_player: ChessAgent = globals()[args.white]('white')
     black_player: ChessAgent = globals()[args.black]('black')
-    chess_match(white_player, black_player)
+
+    #chess_match(white_player, black_player)
+
+    game_tracker_100(white_player, black_player)
 
 if __name__ == '__main__':
     main()
